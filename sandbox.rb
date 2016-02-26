@@ -73,7 +73,6 @@ class MyClass2
 
   @instalk
 
-
   def self.classMethod
     @instvar = "too"
   end
