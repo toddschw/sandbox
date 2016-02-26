@@ -1,3 +1,5 @@
+# Examples from the Book of Ruby by Huw Collingbourne
+
 # class MyClass
 #   @@classvar = 1000
 #   @instvar = 500
@@ -99,3 +101,25 @@ puts ob
 puts ob.class
 
 p IO.singleton_methods
+
+
+class Creature
+  def initialize (aSpeech)
+    @speech = aSpeech
+  end
+
+  def talk
+    puts @speech
+  end
+end
+
+cat = Creature.new( "miaow" )
+dog = Creature.new( "woof" )
+budgie = Creature.new( "Who's a pretty boy, then!" )
+werewolf = Creature.new( "growl" )
+
+def werewolf.howl
+  puts "Yooowww"
+end
+
+werewolf.howl
