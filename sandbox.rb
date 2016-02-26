@@ -96,4 +96,6 @@ end
 
 ob = MyClass3.new("hello world")
 puts ob
-puts ob.class 
+puts ob.class
+
+p IO.singleton_methods
