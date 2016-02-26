@@ -80,7 +80,20 @@ class MyClass2
 
 end
 
-
-
 puts MyClass2.classMethod
 puts MyClass2.instance_variables
+
+class MyClass3
+  def self.new (aStr)
+    super
+    @anewvar = aStr.swapcase
+  end
+
+  def initialize (aStr)
+    @avar = aStr
+  end
+end
+
+ob = MyClass3.new("hello world")
+puts ob
+puts ob.class 
