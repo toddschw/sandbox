@@ -123,3 +123,23 @@ def werewolf.howl
 end
 
 werewolf.howl
+
+class Person
+end
+
+neo = Person.new
+
+def neo.seeMatrix
+  puts "I am the one!"
+end
+
+person = Person.new
+
+
+if person.singleton_methods.include? ("congratulate")
+  person.seeMatrix
+end
+
+if neo.respond_to? (:seeMatrix)
+  neo.seeMatrix
+end
