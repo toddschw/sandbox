@@ -143,3 +143,17 @@ end
 if neo.respond_to? (:seeMatrix)
   neo.seeMatrix
 end
+
+
+ob1 = Object.new
+puts ob.object_id
+
+class << ob1
+  def bark
+    puts "woof"
+  end
+end
+
+ob2 = Object.new
+
+puts ob1.methods - ob2.methods
