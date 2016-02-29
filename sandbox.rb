@@ -157,3 +157,65 @@ end
 ob2 = Object.new
 
 puts ob1.methods - ob2.methods
+
+class MyClass
+  def sayHello
+    puts "Hello from MyClass"
+  end
+
+  def sayGoodbye
+    return "Goodbye from MyClass"
+  end
+end
+
+class MyOtherClass < MyClass
+  def sayHello
+    puts "Hello from MyOtherClass"
+  end
+
+  def sayGoodbye
+    puts super << " and also from MyOtherClass"
+  end
+
+  def to_s
+    return "I am an instance of #{self.class}"
+  end
+end
+
+ob = MyClass.new
+ob.sayHello
+puts ob.sayGoodbye
+puts ob.to_s
+
+obj = MyOtherClass.new
+obj.sayHello
+obj.sayGoodbye
+puts obj.to_s
+
+
+def method
+  p "hi"
+end
+
+a = method
+
+puts a.class
+
+class MyClass
+  def sayHi
+    "inside the sayHi method of MyClass"
+  end
+end
+
+class MyInheritedClass < MyClass
+  def sayHi
+    puts super
+    "saying Hi from MyInheritedClass"
+  end
+end
+
+ob = MyClass.new
+# puts ob.sayHi
+
+ob2 = MyInheritedClass.new
+puts ob2.sayHi
