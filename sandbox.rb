@@ -203,14 +203,15 @@ puts a.class
 
 class MyClass
   def sayHi
-    "inside the sayHi method of MyClass"
+    a = "inside the sayHi method of MyClass"
+    nil
   end
 end
 
 class MyInheritedClass < MyClass
   def sayHi
-    puts super
-    "saying Hi from MyInheritedClass"
+    super
+    puts a
   end
 end
 
@@ -218,4 +219,119 @@ ob = MyClass.new
 # puts ob.sayHi
 
 ob2 = MyInheritedClass.new
-puts ob2.sayHi
+# puts ob2.sayHi
+
+
+class ToddClass
+
+
+  def self.sayHi
+    puts "Hii..."
+  end
+
+  sayHi
+
+  private
+    def priv
+      puts self
+    end
+
+  protected
+    def prot
+      puts "protected"
+    end
+
+  public
+    def pub
+      puts "public"
+    end
+
+    def useOb (anOb)
+      priv
+    end
+
+
+end
+
+5.times do
+  puts self.class
+  myob = ToddClass.new
+end
+# myob2 = ToddClass.new
+
+# myob.useOb (myob2)
+
+
+def roar
+  puts "rooooar"
+end
+
+def sing
+  puts "la"
+end
+
+puts Object.methods.private_methods.sort
+
+puts self.object_id
+puts self.object_id
+
+class Array
+
+  puts self
+
+  def self.laugh
+    puts self.object_id
+  end
+
+  def growl
+    puts "instance var growl #{self.object_id}"
+  end
+
+end
+
+[1,2].growl
+Array.laugh
+
+def self.bray
+  puts "he haw"
+end
+
+self.bray
+
+puts
+puts
+
+puts Object.methods.count
+puts self.methods.count
+
+y = Object.new
+
+def y.smile
+  puts self
+  puts "smile"
+end
+
+y.smile
+
+arr = [11,-3,4, 8, 0,0,5,-1]
+n = arr.length
+
+myhash = {less: [], greater: [], zero: []}
+for y in 0..n-1
+  if arr[y] < 0
+    puts "less than case:  element #{y} is #{arr[y]}"
+    myhash[:less] << arr[y]
+  elsif arr[y] > 0
+    puts "greater than case:  element #{y} is #{arr[y]}"
+    myhash[:greater] << arr[y]
+  else
+    puts "0 case:  element #{y} is #{arr[y]}"
+    myhash[:zero] << arr[y]
+  end
+end
+
+puts myhash[:greater]
+puts
+puts myhash[:less]
+puts
+puts myhash[:zero]
