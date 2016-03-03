@@ -313,7 +313,7 @@ end
 
 y.smile
 
-arr = [11,-3,4, 8, 0,0,5,-1]
+arr = [11,-3,4, 8, 0,0,5,-1,67]
 n = arr.length
 
 myhash = {less: [], greater: [], zero: []}
@@ -330,8 +330,82 @@ for y in 0..n-1
   end
 end
 
-puts myhash[:greater]
-puts
-puts myhash[:less]
-puts
-puts myhash[:zero]
+puts myhash[:greater].length.to_f/n.to_f
+puts myhash[:less].length.to_f/n.to_f
+puts myhash[:zero].length.to_f/n.to_f
+
+m = 6
+for i in 1..m
+
+  (m-i).times { print " "}
+  i.times { print "*"}
+  puts
+end
+
+date = "07:05:45PM"
+
+# puts date.slice(-2..-1)
+# puts date
+#
+# puts date.slice!(-2..-1)
+# puts date
+
+def format_date(date)
+  am_or_pm = date.slice -2..-1
+  less_stamp = date.slice(0..7)
+  hour = date.slice 0..1
+  hour = hour.to_i
+  if am_or_pm == "AM"
+    if hour == 12 # subtract 12
+      hour = "00"
+      puts hour << date.slice(2..7)
+    else
+      puts date.slice(0..7)
+    end
+  else
+    if hour != 12
+      hour = hour + 12
+      hour = hour.to_s
+      puts  hour << date.slice(2..7)
+    else
+      hour = hour + 1
+      hour = hour.to_s
+      puts  hour << date.slice(2..7)
+    end
+  end
+end
+
+format_date("12:05:45AM")
+format_date("12:45:45PM")
+
+arr = [2,5,6,22,33,2,90,31]
+n = arr.length
+
+n.times do
+    arr << gets.strip.to_i
+end
+
+def results(n,arr)
+    return_array = []
+    for i in 1..n
+        puts "Game #{i} begin: goal is to reach block #{arr[i-1]}"
+        lands_on = 0
+        for move in 1..arr[i-1]
+           print "move #{move} "
+           lands_on += move
+           if lands_on > arr[i-1]
+           #           return_array << "Better Luck Next Time"
+             puts "Game Over"
+             break
+           elsif lands_on == arr[i-1]
+           #           return_array << "Go On Bob #{lands_on}"
+             puts "Winner"
+             break
+           end
+
+         end
+         puts
+      end
+  end
+
+results n, arr
